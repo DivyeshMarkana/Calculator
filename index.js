@@ -36,6 +36,8 @@ keys.addEventListener("click", e => {
 
             key.classList.add("is-depressed")
             calculator.dataset.previousKeyType = "operator"
+            calculator.dataset.firstValue = displayValue
+            calculator.dataset.operator = action
         }
     }
 })
