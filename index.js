@@ -49,7 +49,7 @@ keys.addEventListener("click", e => {
             display.textContent = displayValue + "."
         }
 
-        if (action === "add" || action === "subtract" || action === "mutiply" || action === "divide") {
+        if (action === "add" || action === "subtract" || action === "multiply" || action === "divide") {
 
             key.classList.add("is-depressed")
             calculator.dataset.previousKeyType = "operator"
