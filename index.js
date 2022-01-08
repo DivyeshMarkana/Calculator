@@ -9,7 +9,7 @@ keys.addEventListener("click", e => {
         const keyContent = key.textContent
         const displayValue = display.textContent
 
-
+        // replace displayValue 0 to user presees key
         if (!action) {
             if (displayValue === "0") {
                 display.textContent = keyContent
@@ -17,6 +17,10 @@ keys.addEventListener("click", e => {
             else {
                 display.textContent = displayValue + keyContent
             }
+        }
+
+        if (action === "decimal") {
+            display.textContent = displayValue + "."
         }
     }
 })
