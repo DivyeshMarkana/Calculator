@@ -46,7 +46,10 @@ keys.addEventListener("click", e => {
 
         // add decimal key and concatenate with display value
         if (action === "decimal") {
-            display.textContent = displayValue + "."
+            if (!displayValue.includes(".")) {
+                display.textContent = displayValue + "."
+            }
+            
         }
 
         if (action === "add" || action === "subtract" || action === "multiply" || action === "divide") {
