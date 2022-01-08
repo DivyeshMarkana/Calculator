@@ -9,13 +9,17 @@ keys.addEventListener("click", e => {
         const keyContent = key.textContent
         const displayValue = display.textContent
 
-         // Remove .is-depressed class from all keys
-    Array.from(key.parentNode.children)
-    .forEach(k => k.classList.remove('is-depressed'))
+        // Remove .is-depressed class from all keys
+        Array.from(key.parentNode.children)
+            .forEach(k => k.classList.remove('is-depressed'))
+
+
+            const previousKeyType = calculator.dataset.previousKeyType
 
         // replace displayValue 0 to user presees key
+        // if previous Key is an operator we replace display value with presses key
         if (!action) {
-            if (displayValue === "0") {
+            if (displayValue === "0" || previousKeyType === "operator") {
                 display.textContent = keyContent
             }
             else {
