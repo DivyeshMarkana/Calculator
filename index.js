@@ -49,6 +49,9 @@ keys.addEventListener("click", e => {
             if (!displayValue.includes(".")) {
                 display.textContent = displayValue + "."
             }
+            else if (previousKeyType === "operator") {
+                display.textContent = "0."
+            }
             
         }
 
