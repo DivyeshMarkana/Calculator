@@ -2,6 +2,25 @@ const calculator = document.querySelector(".calculator")
 const display = document.querySelector(".calculator__display")
 const keys = document.querySelector(".calculator__keys")
 
+const calculate = (n1, operator, n2) => {
+    let result = ""
+
+    if (operator === "add") {
+        result = n1 + n2
+    }
+    else if (operator === "subtract") {
+        result = n1 - n2
+    }
+    else if (operator === "multiply") {
+        result = n1 * n2
+    }
+    else if (operator === "divide") {
+        result = n1 / n2
+    }
+    return result
+}
+
+
 keys.addEventListener("click", e => {
     if (e.target.matches("button")) {
         const key = e.target
@@ -14,7 +33,7 @@ keys.addEventListener("click", e => {
             .forEach(k => k.classList.remove('is-depressed'))
 
 
-            const previousKeyType = calculator.dataset.previousKeyType
+        const previousKeyType = calculator.dataset.previousKeyType
 
         // replace displayValue 0 to user presees key
         // if previous Key is an operator we replace display value with presses key
