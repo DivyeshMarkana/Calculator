@@ -39,5 +39,13 @@ keys.addEventListener("click", e => {
             calculator.dataset.firstValue = displayValue
             calculator.dataset.operator = action
         }
+
+        if (action === "calculate") {
+            const firstValue = calculator.dataset.firstValue
+            const operator = calculator.dataset.operator
+            const secondValue = displayValue
+
+            display.textContent = calculate(firstValue, operator, secondValue)
+        }
     }
 })
