@@ -8,5 +8,15 @@ keys.addEventListener("click", e => {
         const action = key.dataset.action
         const keyContent = key.textContent
         const displayValue = display.textContent
+
+
+        if (!action) {
+            if (displayValue === "0") {
+                display.textContent = keyContent
+            }
+            else {
+                display.textContent = displayValue + keyContent
+            }
+        }
     }
 })
