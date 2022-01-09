@@ -92,6 +92,7 @@ keys.addEventListener("click", e => {
             if (firstValue) {
                 if (previousKeyType === "operator") {
                     firstValue = displayValue
+                    secondValue = calculator.dataset.modValue
                 }
                 display.textContent = calculate(firstValue, operator, secondValue)
             }
