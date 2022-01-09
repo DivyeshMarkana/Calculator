@@ -110,12 +110,16 @@ const createResultString = (key, displayValue, state) => {
 
 const updateCalculatorState = (key) => {
     const keyType = getKeyType(key)
+    calculator.dataset.previousKeyType = keyType
+
+
+    Array.from(key.parentNode.children) 
+    .forEach(k => k.classList.remove('is-depressed'))
 }
 
 
 
-Array.from(key.parentNode.children)
-    .forEach(k => k.classList.remove('is-depressed'))
+
 
 
 
