@@ -81,7 +81,6 @@ const createResultString = (key, displayValue, state) => {
 
     }
 
-
     if (keyType === "operator") {
 
         const firstValue = calculator.dataset.firstValue
@@ -107,6 +106,10 @@ const createResultString = (key, displayValue, state) => {
             : displayValue
     }
 
+}
+
+const updateCalculatorState = (key) => {
+    const keyType = getKeyType(key)
 }
 
 
