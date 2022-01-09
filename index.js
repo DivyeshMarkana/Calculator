@@ -42,13 +42,13 @@ const createResultString = (key, displayValue, state) => {
         modValue,
         operator,
         previousKeyType
-    } = state
+    } = state   
 
     if (!action) {
         return (displayValue === "0" ||
             previousKeyType === "operator" ||
             previousKeyType === "calculate")
-            ? keyValue
+            ? keyContent
             : displayValue + keyContent
     }
 
