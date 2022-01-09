@@ -90,11 +90,12 @@ keys.addEventListener("click", e => {
             const secondValue = displayValue
 
             if (firstValue) {
+                if (previousKeyType === "operator") {
+                    firstValue = displayValue
+                }
                 display.textContent = calculate(firstValue, operator, secondValue)
             }
             calculator.dataset.previousKeyType = "calculate"
-
-
         }
     }
 })
