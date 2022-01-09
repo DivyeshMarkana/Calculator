@@ -95,6 +95,7 @@ keys.addEventListener("click", e => {
                 }
                 display.textContent = calculate(firstValue, operator, secondValue)
             }
+            calculator.dataset.modValue = secondValue
             calculator.dataset.previousKeyType = "calculate"
         }
     }
