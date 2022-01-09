@@ -60,6 +60,7 @@ keys.addEventListener("click", e => {
             const firstValue = calculator.dataset.firstValue
             const operator = calculator.dataset.operator
             const secondValue = displayValue
+            const previousKeyType = calculator.dataset.previousKeyType
 
             if (firstValue && operator && previousKeyType !== "operator") {
                 const calcValue = calculate(firstValue, operator, secondValue)
