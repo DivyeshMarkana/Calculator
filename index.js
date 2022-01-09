@@ -35,6 +35,14 @@ keys.addEventListener("click", e => {
 })
 
 const createResultString = (key, displayValue, state) => {
+    const keyContent = key.textContent
+    const { action } = key.dataset
+    const {
+        firstValue,
+        modValue,
+        operator,
+        previousKeyType
+    } = state
 
     if (!action) {
         return (displayValue === "0" ||
