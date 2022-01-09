@@ -43,6 +43,20 @@ const createResultString = (key, displayValue, state) => {
             ? keyValue
             : displayValue + keyContent
     }
+
+    if (action === "decimal") {
+        if (!displayValue.includes("."))
+            return displayValue + "."
+
+        if (previousKeyType === "operator" || previousKeyType === "calculate")
+            return "0."
+
+        return displayValue
+
+    }
+
+   
+
 }
 
 
@@ -53,42 +67,9 @@ const createResultString = (key, displayValue, state) => {
 
 
 // add decimal key and concatenate with display value
-if (action === "decimal") {
-    if (!displayValue.includes(".")) {
-        display.textContent = displayValue + "."
-    }
-    else if (previousKeyType === "operator" || previousKeyType === "calculate") {
-        display.textContent = "0."
-    }
 
-    calculator.dataset.previousKeyType = "decimal"
 
-}
 
-if (action === "add" || action === "subtract" || action === "multiply" || action === "divide") {
-
-    const firstValue = calculator.dataset.firstValue
-    const operator = calculator.dataset.operator
-    const secondValue = displayValue
-    const previousKeyType = calculator.dataset.previousKeyType
-
-    if (firstValue && operator && previousKeyType !== "operator" || previousKeyType === "calculate") {
-        const calcValue = calculate(firstValue, operator, secondValue)
-        display.textContent = calcValue
-
-        // update calculated value as first value
-        calculator.dataset.firstValue = calcValue
-    }
-    else {
-        // if there no calculation set display value as first Value
-        calculator.dataset.firstValue = displayValue
-    }
-
-    key.classList.add("is-depressed")
-    calculator.dataset.previousKeyType = "operator"
-    calculator.dataset.firstValue = displayValue
-    calculator.dataset.operator = action
-}
 // Remove .is-depressed class from all keys
 Array.from(key.parentNode.children)
     .forEach(k => k.classList.remove('is-depressed'))
