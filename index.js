@@ -117,5 +117,10 @@ keys.addEventListener("click", e => {
             display.textContent =  0
             calculator.dataset.previousKeyType = "clear"
         }
+
+        if (action !== "clear") {
+            const clearButton = calculator.querySelector("[data-action=clear]")
+            clearButton.textContent = "CE"
+        }
     }
 })
