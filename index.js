@@ -119,10 +119,6 @@ const updateCalculatorState = (key, calculator, calculatedValue, displayValue) =
 
     calculator.dataset.previousKeyType = keyType
 
-
-    Array.from(key.parentNode.children)
-        .forEach(k => k.classList.remove('is-depressed'))
-
     if (keyType === "operator") {
         key.classList.add("is-depressed")
 
@@ -156,5 +152,19 @@ const updateCalculatorState = (key, calculator, calculatedValue, displayValue) =
         ? modValue
         :displayValue
     }
+}
+
+const updateVisualSate = (key, calculator) => {
+    const keyType = getKeyType(key)
+
+    
+    Array.from(key.parentNode.children)
+        .forEach(k => k.classList.remove('is-depressed'))
+
+        if (keyType === "operator") {
+            key.classList.add("is-drepressed")
+        }
+        
+
 }
 
