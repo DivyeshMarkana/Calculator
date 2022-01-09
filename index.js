@@ -102,5 +102,20 @@ keys.addEventListener("click", e => {
             calculator.dataset.modValue = secondValue
             calculator.dataset.previousKeyType = "calculate"
         }
+
+        if (action === "clear") {
+            if (key.textContent === "AC") {
+                calculator.dataset.firstValue = ""
+                calculator.dataset.operator = ""
+                calculator.dataset.modValue = ""
+                calculator.dataset.previousKeyType = ""
+            }
+            else {
+                key.textContent = "AC"
+            }
+
+            display.textContent =  0
+            calculator.dataset.previousKeyType = "clear"
+        }
     }
 })
