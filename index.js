@@ -35,23 +35,22 @@ keys.addEventListener("click", e => {
 })
 
 const createResultString = (key, displayValue, state) => {
-    
+
+    if (!action) {
+        return (displayValue === "0" ||
+            previousKeyType === "operator" ||
+            previousKeyType === "calculate")
+            ? keyValue
+            : displayValue + keyContent
+    }
 }
-    
+
 
 
 
 // replace displayValue 0 to user presees key
 // if previous Key is an operator we replace display value with presses key
-if (!action) {
-    if (displayValue === "0" || previousKeyType === "operator" || previousKeyType === "calculate") {
-        display.textContent = keyContent
-    }
-    else {
-        display.textContent = displayValue + keyContent
-    }
-    calculator.dataset.previousKeyType = "number"
-}
+
 
 // add decimal key and concatenate with display value
 if (action === "decimal") {
