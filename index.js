@@ -52,7 +52,7 @@ keys.addEventListener("click", e => {
             else if (previousKeyType === "operator") {
                 display.textContent = "0."
             }
-            
+
         }
 
         if (action === "add" || action === "subtract" || action === "multiply" || action === "divide") {
@@ -89,7 +89,12 @@ keys.addEventListener("click", e => {
             const operator = calculator.dataset.operator
             const secondValue = displayValue
 
-            display.textContent = calculate(firstValue, operator, secondValue)
+            if (firstValue) {
+                display.textContent = calculate(firstValue, operator, secondValue)
+            }
+            calculator.dataset.previousKeyType = "calculate"
+
+
         }
     }
 })
