@@ -85,10 +85,6 @@ const createResultString = (key, displayValue, state) => {
     }
 
     if (action === "calculate") {
-        const firstValue = calculator.dataset.firstValue
-        const operator = calculator.dataset.operator
-        const modValue = calculator.dataset.modValue
-
         return firstValue
             ? (previousKeyType === "calculate")
                 ? calculate(displayValue, operator, modValue)
