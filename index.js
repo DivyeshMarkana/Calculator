@@ -108,8 +108,15 @@ const createResultString = (key, displayValue, state) => {
 
 }
 
-const updateCalculatorState = (key) => {
+const updateCalculatorState = (key, calculator, calculatedValue, displayValue) => {
     const keyType = getKeyType(key)
+    const {
+        firstValue,
+        modValue,
+        operator,
+        previousKeyType
+    } = calculator.dataset
+
     calculator.dataset.previousKeyType = keyType
 
 
