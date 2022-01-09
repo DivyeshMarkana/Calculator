@@ -124,8 +124,24 @@ const updateCalculatorState = (key) => {
             operator &&
             previousKeyType !== "operator" &&
             previousKeyType !== "calculate"
-            ? calculatedValue   
+            ? calculatedValue
             : displayValue
+    }
+
+    if (keyType === 'clear') {
+        if (key.textContent === 'AC') {
+            calculator.dataset.firstValue = ''
+            calculator.dataset.modValue = ''
+            calculator.dataset.operator = ''
+            calculator.dataset.previousKeyType = ''
+        } else {
+            key.textContent = 'AC'
+        }
+    }
+
+    if (keyType !== 'clear') {
+        const clearButton = calculator.querySelector('[data-action=clear]')
+        clearButton.textContent = 'CE'
     }
 }
 
