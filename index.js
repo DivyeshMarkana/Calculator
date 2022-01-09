@@ -54,7 +54,7 @@ const createResultString = (key, displayValue, state) => {
         return displayValue
 
     }
-    
+
 
     if (action === "add" ||
         action === "subtract" ||
@@ -72,54 +72,33 @@ const createResultString = (key, displayValue, state) => {
             : displayValue
     }
 
+    if (action === "clear") {
+        return 0
+    }
+
+    if (action === "calculate") {
+        const firstValue = calculator.dataset.firstValue
+        const operator = calculator.dataset.operator
+        const modValue = calculator.dataset.modValue
+
+        return firstValue
+            ? (previousKeyType === "calculate")
+                ? calculate(displayValue, operator, modValue)
+                : calculate(firstValue, operator, displayValue)
+            : displayValue
+    }
+
 }
 
 
 
-
-// replace displayValue 0 to user presees key
-// if previous Key is an operator we replace display value with presses key
-
-
-// add decimal key and concatenate with display value
-
-
-
-// Remove .is-depressed class from all keys
 Array.from(key.parentNode.children)
     .forEach(k => k.classList.remove('is-depressed'))
 
 
-if (action === "calculate") {
-    let firstValue = calculator.dataset.firstValue
-    const operator = calculator.dataset.operator
-    let secondValue = displayValue
 
-    if (firstValue) {
-        if (previousKeyType === "calculate") {
-            firstValue = displayValue
-            secondValue = calculator.dataset.modValue
-        }
-        display.textContent = calculate(firstValue, operator, secondValue)
-    }
-    calculator.dataset.modValue = secondValue
-    calculator.dataset.previousKeyType = "calculate"
-}
 
-if (action === "clear") {
-    if (key.textContent === "AC") {
-        calculator.dataset.firstValue = ""
-        calculator.dataset.operator = ""
-        calculator.dataset.modValue = ""
-        calculator.dataset.previousKeyType = ""
-    }
-    else {
-        key.textContent = "AC"
-    }
 
-    display.textContent = 0
-    calculator.dataset.previousKeyType = "clear"
-}
 
 if (action !== "clear") {
     const clearButton = calculator.querySelector("[data-action=clear]")
