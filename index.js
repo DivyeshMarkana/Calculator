@@ -36,12 +36,13 @@ keys.addEventListener("click", e => {
         // replace displayValue 0 to user presees key
         // if previous Key is an operator we replace display value with presses key
         if (!action) {
-            if (displayValue === "0" || previousKeyType === "operator") {
+            if (displayValue === "0" || previousKeyType === "operator" || previousKeyType === "calculate") {
                 display.textContent = keyContent
             }
             else {
                 display.textContent = displayValue + keyContent
             }
+            calculator.dataset.previousKeyType = "number"
         }
 
         // add decimal key and concatenate with display value
@@ -49,9 +50,11 @@ keys.addEventListener("click", e => {
             if (!displayValue.includes(".")) {
                 display.textContent = displayValue + "."
             }
-            else if (previousKeyType === "operator") {
+            else if (previousKeyType === "operator" || previousKeyType === "calculate") {
                 display.textContent = "0."
             }
+
+            calculator.dataset.previousKeyType = "decimal"
 
         }
 
