@@ -143,18 +143,11 @@ const updateCalculatorState = (key) => {
         const clearButton = calculator.querySelector('[data-action=clear]')
         clearButton.textContent = 'CE'
     }
+
+    if (keyType === "calculate") {
+        calculator.dataset.modValue = firstValue && previousKeyType === "calculate"
+        ? modValue
+        :displayValue
+    }
 }
 
-
-
-
-
-
-
-
-
-
-if (action !== "clear") {
-    const clearButton = calculator.querySelector("[data-action=clear]")
-    clearButton.textContent = "CE"
-}
