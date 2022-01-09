@@ -90,7 +90,7 @@ keys.addEventListener("click", e => {
             const secondValue = displayValue
 
             if (firstValue) {
-                if (previousKeyType === "operator") {
+                if (previousKeyType === "calculate") {
                     firstValue = displayValue
                     secondValue = calculator.dataset.modValue
                 }
