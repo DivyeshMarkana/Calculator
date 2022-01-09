@@ -89,7 +89,7 @@ const createResultString = (key, displayValue, state) => {
         return firstValue &&
             operator &&
             previousKeyType !== "operator" &&
-            previousKeyType === "calculate"
+            previousKeyType !== "calculate"
             ? calculate(firstValue, operator, secondValue)
             : displayValue
     }
