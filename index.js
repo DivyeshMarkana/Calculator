@@ -35,16 +35,16 @@ keys.addEventListener("click", e => {
 })
 
 const getKeyType = (key) => {
-    const { action } =key.dataset
+    const { action } = key.dataset
 
     if (!action) {
         return "number"
     }
 
     if (action === "add" ||
-    action === "subtract" ||
-    action === "multiply" ||
-    action === "divide") {
+        action === "subtract" ||
+        action === "multiply" ||
+        action === "divide") {
         return "operator"
     }
     // for everything else return action
@@ -60,7 +60,7 @@ const createResultString = (key, displayValue, state) => {
         modValue,
         operator,
         previousKeyType
-    } = state   
+    } = state
 
     if (keyType === "number") {
         return (displayValue === "0" ||
@@ -113,8 +113,20 @@ const updateCalculatorState = (key) => {
     calculator.dataset.previousKeyType = keyType
 
 
-    Array.from(key.parentNode.children) 
-    .forEach(k => k.classList.remove('is-depressed'))
+    Array.from(key.parentNode.children)
+        .forEach(k => k.classList.remove('is-depressed'))
+
+    if (keyType === "operator") {
+        key.classList.add("is-depressed")
+
+        calculator.dataset.operator = key.dataset.action
+        calculator.dataset.firstValue = firstValue &&
+            operator &&
+            previousKeyType !== "operator" &&
+            previousKeyType !== "calculate"
+            ? calculatedValue   
+            : displayValue
+    }
 }
 
 
