@@ -55,7 +55,6 @@ const createResultString = (key, displayValue, state) => {
 
     const keyType = getKeyType(key)
     const keyContent = key.textContent
-    const { action } = key.dataset
     const {
         firstValue,
         modValue,
