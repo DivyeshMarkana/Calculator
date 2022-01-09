@@ -35,7 +35,20 @@ keys.addEventListener("click", e => {
 })
 
 const getKeyType = (key) => {
-    
+    const { action } =key.dataset
+
+    if (!action) {
+        return "number"
+    }
+
+    if (action === "add" ||
+    action === "subtract" ||
+    action === "multiply" ||
+    action === "divide") {
+        return "operator"
+    }
+    // for everything else return action
+    return action
 }
 
 const createResultString = (key, displayValue, state) => {
