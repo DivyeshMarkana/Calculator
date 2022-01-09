@@ -52,6 +52,8 @@ const getKeyType = (key) => {
 }
 
 const createResultString = (key, displayValue, state) => {
+
+    const keyType = getKeyType(key)
     const keyContent = key.textContent
     const { action } = key.dataset
     const {
@@ -61,7 +63,7 @@ const createResultString = (key, displayValue, state) => {
         previousKeyType
     } = state   
 
-    if (!action) {
+    if (keyType === "number") {
         return (displayValue === "0" ||
             previousKeyType === "operator" ||
             previousKeyType === "calculate")
@@ -69,7 +71,7 @@ const createResultString = (key, displayValue, state) => {
             : displayValue + keyContent
     }
 
-    if (action === "decimal") {
+    if (keyType === "decimal") {
         if (!displayValue.includes("."))
             return displayValue + "."
 
@@ -81,10 +83,7 @@ const createResultString = (key, displayValue, state) => {
     }
 
 
-    if (action === "add" ||
-        action === "subtract" ||
-        action === "multiply" ||
-        action === "divide") {
+    if (keyType === "operator") {
 
         const firstValue = calculator.dataset.firstValue
         const operator = calculator.dataset.operator
@@ -97,11 +96,11 @@ const createResultString = (key, displayValue, state) => {
             : displayValue
     }
 
-    if (action === "clear") {
+    if (keyType === "clear") {
         return 0
     }
 
-    if (action === "calculate") {
+    if (keyType === "calculate") {
         return firstValue
             ? (previousKeyType === "calculate")
                 ? calculate(displayValue, operator, modValue)
