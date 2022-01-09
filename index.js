@@ -164,7 +164,16 @@ const updateVisualSate = (key, calculator) => {
         if (keyType === "operator") {
             key.classList.add("is-drepressed")
         }
-        
+
+        if (keyType === "clear" && key.textContent !== "AC") {
+            key.textContent = "AC"
+        }
+
+        if (keyType !==  'clear') {
+            const clearButton = calculator.querySelector('[data-action=clear]')
+            clearButton.textContent = 'CE'
+          }
+
 
 }
 
