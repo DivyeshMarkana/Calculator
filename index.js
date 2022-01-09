@@ -54,8 +54,23 @@ const createResultString = (key, displayValue, state) => {
         return displayValue
 
     }
+    
 
-   
+    if (action === "add" ||
+        action === "subtract" ||
+        action === "multiply" ||
+        action === "divide") {
+
+        const firstValue = calculator.dataset.firstValue
+        const operator = calculator.dataset.operator
+
+        return firstValue &&
+            operator &&
+            previousKeyType !== "operator" &&
+            previousKeyType === "calculate"
+            ? calculate(firstValue, operator, secondValue)
+            : displayValue
+    }
 
 }
 
