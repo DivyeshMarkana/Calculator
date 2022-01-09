@@ -29,7 +29,12 @@ keys.addEventListener("click", e => {
     if (e.target.matches("button")) {
         const key = e.target
         const displayValue = display.textContent
+        // pure function
         const resultString = createResultString(key, displayValue, calculator.dataset)
+
+        // Update states
+        updateCalculatorState(key, calculator, resultString, displayValue)
+        updateVisualSate(key, calculator)
 
     }
 })
@@ -149,30 +154,30 @@ const updateCalculatorState = (key, calculator, calculatedValue, displayValue) =
 
     if (keyType === "calculate") {
         calculator.dataset.modValue = firstValue && previousKeyType === "calculate"
-        ? modValue
-        :displayValue
+            ? modValue
+            : displayValue
     }
 }
 
 const updateVisualSate = (key, calculator) => {
     const keyType = getKeyType(key)
 
-    
+
     Array.from(key.parentNode.children)
         .forEach(k => k.classList.remove('is-depressed'))
 
-        if (keyType === "operator") {
-            key.classList.add("is-drepressed")
-        }
+    if (keyType === "operator") {
+        key.classList.add("is-drepressed")
+    }
 
-        if (keyType === "clear" && key.textContent !== "AC") {
-            key.textContent = "AC"
-        }
+    if (keyType === "clear" && key.textContent !== "AC") {
+        key.textContent = "AC"
+    }
 
-        if (keyType !==  'clear') {
-            const clearButton = calculator.querySelector('[data-action=clear]')
-            clearButton.textContent = 'CE'
-          }
+    if (keyType !== 'clear') {
+        const clearButton = calculator.querySelector('[data-action=clear]')
+        clearButton.textContent = 'CE'
+    }
 
 
 }
