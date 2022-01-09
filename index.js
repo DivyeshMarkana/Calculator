@@ -88,9 +88,9 @@ keys.addEventListener("click", e => {
 
 
         if (action === "calculate") {
-            const firstValue = calculator.dataset.firstValue
+            let firstValue = calculator.dataset.firstValue
             const operator = calculator.dataset.operator
-            const secondValue = displayValue
+            let secondValue = displayValue
 
             if (firstValue) {
                 if (previousKeyType === "calculate") {
