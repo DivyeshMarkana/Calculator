@@ -5,20 +5,23 @@ const keys = document.querySelector(".calculator__keys")
 
 // creates a calculate function for calculates value
 const calculate = (n1, operator, n2) => {
-    let result = ""
 
+    const firstNum = parseFloat(n1)
+    const secondtNum = parseFloat(n2)
+    
     if (operator === "add") {
-        result = parseFloat(n1) + parseFloat(n2)
+        return firstNum + secondtNum
     }
     else if (operator === "subtract") {
-        result = parseFloat(n1) - parseFloat(n2)
+        return firstNum - secondtNum
     }
     else if (operator === "multiply") {
-        result = parseFloat(n1) * parseFloat(n2)
+        return firstNum * secondtNum
     }
     else if (operator === "divide") {
-        result = parseFloat(n1) / parseFloat(n2)
+        return firstNum / secondtNum
     }
+
     return result
 }
 
