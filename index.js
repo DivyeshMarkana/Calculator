@@ -34,6 +34,11 @@ keys.addEventListener("click", e => {
     }
 })
 
+const createResultString = (key, displayValue, state) => {
+    
+}
+    
+
 
 
 // replace displayValue 0 to user presees key
