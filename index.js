@@ -7,19 +7,19 @@ const keys = document.querySelector(".calculator__keys")
 const calculate = (n1, operator, n2) => {
 
     const firstNum = parseFloat(n1)
-    const secondtNum = parseFloat(n2)
+    const secondNum = parseFloat(n2)
 
     if (operator === "add") {
-        return firstNum + secondtNum
+        return firstNum + secondNum
     }
     if (operator === "subtract") {
-        return firstNum - secondtNum
+        return firstNum - secondNum
     }
     if (operator === "multiply") {
-        return firstNum * secondtNum
+        return firstNum * secondNum
     }
     if (operator === "divide") {
-        return firstNum / secondtNum
+        return firstNum / secondNum
     }
 
     return result
