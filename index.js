@@ -12,13 +12,13 @@ const calculate = (n1, operator, n2) => {
     if (operator === "add") {
         return firstNum + secondtNum
     }
-    else if (operator === "subtract") {
+    if (operator === "subtract") {
         return firstNum - secondtNum
     }
-    else if (operator === "multiply") {
+    if (operator === "multiply") {
         return firstNum * secondtNum
     }
-    else if (operator === "divide") {
+    if (operator === "divide") {
         return firstNum / secondtNum
     }
 
