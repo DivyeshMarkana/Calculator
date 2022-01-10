@@ -121,8 +121,6 @@ const updateCalculatorState = (key, calculator, calculatedValue, displayValue) =
     calculator.dataset.previousKeyType = keyType
 
     if (keyType === "operator") {
-        key.classList.add("is-depressed")
-
         calculator.dataset.operator = key.dataset.action
         calculator.dataset.firstValue = firstValue &&
             operator &&
