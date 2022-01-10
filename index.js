@@ -93,7 +93,7 @@ const createResultString = (key, displayValue, state) => {
             operator &&
             previousKeyType !== "operator" &&
             previousKeyType !== "calculate"
-            ? calculate(firstValue, operator, secondValue)
+            ? calculate(firstValue, operator, displayValue)
             : displayValue
     }
 
