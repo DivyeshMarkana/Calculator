@@ -32,6 +32,8 @@ keys.addEventListener("click", e => {
         // pure function
         const resultString = createResultString(key, displayValue, calculator.dataset)
 
+        display.textContent = resultString
+
         // Update states
         updateCalculatorState(key, calculator, resultString, displayValue)
         updateVisualSate(key, calculator)
